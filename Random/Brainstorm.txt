@@ -1,0 +1,67 @@
+selective stats vampire survivor style
+selective abilities swarm style
+unique starting abilities swarm style
+active abilities swarm style
+cursor targeting abilities swarm style
+special quirks and perks for each distinct character
+minigames swarm style
+unique ability modifiers from minigames spell brigade style (start with free level up) (elemental modifiers?)
+ability evolving vampire survivor style
+map mechanics swarm style/spell brigade style
+minimap swarm style
+information clarity swarm style
+minibosses swarm style
+
+
+stats
+movement speed
+cooldown reduction
+damage
+area of effect/size
+health
+regen/healing
+armor
+xp
+projectile count
+luck/crit
+duration
+projectile speed
+projectile piercing
+
+
+
+immobile cdr focused robot
+stand still and reduce all cooldowns ability bastion turret
+
+movement focused robot
+speed boost ability
+
+slot machine robot
+collect coins luck based
+abilities use coins to cast
+
+shotgun projectile count based robot
+that can throw down traps and bait with count scaling
+
+healing robot that wants to take damage and heal it back
+damage self over time for temp buff also heals allies at same time
+
+duration based necromancer robot
+ability combines zombies into big one
+revives buffed minibosses or allies for duration
+
+shield based robot
+block projectiles and enemies from 1 direction
+shield bash/dash ability
+
+health based magnet melee punch robot that gains temp hp when hitting
+ability to boost max hp
+also magnets to pull enemy into melee and punch it away
+
+circular saw robot with projectile speed
+saw circles robot at range based on mouse cursor during ability
+
+area based bomb robot
+drop c4 and use ability to detonate
+
+piercing based laser robot
