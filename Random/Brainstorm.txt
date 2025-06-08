@@ -69,11 +69,11 @@ punching fist to closest enemy
 
 homing magic bullets
 
-drop down burning spots
+drop down burning spots; upgrade increased regen when inside
 
 dagger that goes to cursor and spins there for duration
 
-tasla coil bouncing lightning
+bouncing lightning
 
 negate next damage and explode in cross
 
@@ -82,6 +82,10 @@ ball that bounces from enemy to enemy
 sticky bomb that deals damage over time and explodes when enemy dies or at end of lifetime
 
 piercing laser balls
+
+short range connection to ally or if none healthiest enemy within range until dead or out of range always prioritises allies deals damage to all enemies who pass through the line; upgrade buffs both when connected to an ally, buffs you when connected to miniboss or stronger
+
+randomly drops aoe for ally defensive or offensive buff when standing inside; upgrade gives buff to all allies when one is inside circle
 
 
 characters/robots
@@ -139,7 +143,7 @@ saw circles clockwise closeby speed scaling with projectile speed
 saw circles robot at range based on mouse cursor during ability
 ult launches fast bouncing saws at cursor
 
-bomb robot projectile count
+bomb robot area
 all bombs explode again at same position based on projectile count
 flash bang stun granade ability
 ult global air strike at cursor position
@@ -157,8 +161,9 @@ weapon pulls in enemies while damaging
 weapon collects xp increasing it's radius
 xp is collected when weapon is collected
 ability throws out weapon and when all have been thrown pulls back in (fifo style)
+can only return weapons in pickup range
 can be held to return all weapons at once
-ult pulls all weapons on the map back and all xp
+ult pulls all weapons on the map back regardless of distance and all xp
 
 revolver damage based
 only shoots with left click
@@ -170,3 +175,8 @@ xp based that can have more weapons and can swap between weapons with ability
 has all weapons active at same time with ult
 1 base always active ability + 6 slots (3 & 3) that can be swapped
 new weapon is added to active or empty slot
+
+drone spawn robot projectile count scaling
+spawn drones based on projectile count
+ability buff all allies
+for duration ult double self and ally projectile count, crit and regen
