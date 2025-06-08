@@ -22,6 +22,7 @@ short blur in out when switching game to selection
 
 
 stats
+
 movement speed
 cooldown reduction
 damage
@@ -37,6 +38,53 @@ projectile speed
 projectile piercing
 pickup radius
 
+
+abilities
+
+small range garlic at intervals circling around with small knockback
+
+giant garlic like fingertip electricity ball
+
+droppin bear traps
+
+circular boomerang btd style
+
+laser gun that ramps up fire speed over time and then turns of for a bit
+
+shotgun at closest two shots then reload
+
+caltrops in random directions
+
+rocket launcher
+
+scythe in cursor direction
+
+orbital laser in random places
+
+spawn a big punching guy
+
+bouncing beach balls with aoe where they land
+
+punching fist to closest enemy
+
+homing magic bullets
+
+drop down burning spots
+
+dagger that goes to cursor and spins there for duration
+
+tasla coil bouncing lightning
+
+negate next damage and explode in cross
+
+ball that bounces from enemy to enemy
+
+sticky bomb that deals damage over time and explodes when enemy dies or at end of lifetime
+
+piercing laser balls
+
+
+characters/robots
 
 immobile cdr focused robot (minigun?)
 stand still and reduce all cooldowns ability bastion turret
@@ -94,7 +142,7 @@ ult launches fast bouncing saws at cursor
 bomb robot projectile count
 all bombs explode again at same position based on projectile count
 flash bang stun granade ability
-ult air strike at cursor position
+ult global air strike at cursor position
 air strike also explodes outward doom bot ziggs style
 
 piercing based laser robot
