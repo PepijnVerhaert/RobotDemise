@@ -11,6 +11,14 @@ map mechanics swarm style/spell brigade style
 minimap swarm style
 information clarity swarm style
 minibosses swarm style
+1 base + 4 extra and 6 passives swarm style
+rerolls arena style
+unique boss each map swarm style
+no friendly fire or self damage swarm style
+special endless mode?
+damage corpses to revive teammates nightreign style
+3 options every level swarm style
+short blur in out when switching game to selection
 
 
 stats
@@ -27,41 +35,90 @@ luck/crit
 duration
 projectile speed
 projectile piercing
+pickup radius
 
 
-
-immobile cdr focused robot
+immobile cdr focused robot (minigun?)
 stand still and reduce all cooldowns ability bastion turret
+increase move speed and increase all cooldowns (toggle/temp?)
 
-movement focused robot
-speed boost ability
+movement focused robot (drill?)
+damage based on speed
+ability to go invulnerable for a short duration by going half underground
+speed boost ability with cooldown based on distance traveled
 
 slot machine robot
-collect coins luck based
-abilities use coins to cast
+shoots coins towards cursor accuracy based on luck
+coins have crits as well as lucky hits for increased damage
+collect tickets on lucky hits
+abilities use tickets to cast
+spend tickets to get random temp bonus (permanent on jackpot?)
+ult uses all tickets and has increased effects based on tickets used
 
-shotgun projectile count based robot
-that can throw down traps and bait with count scaling
+cleaning robot area based (roomba?)
+that leaves behind acid/sticky trail that slows and damages
+only goes forward, hold ability to stop moving and rotate towards cursor
+automatically rotates when hitting a wall
+ult to drop giant damage aoe
 
-healing robot that wants to take damage and heal it back
-damage self over time for temp buff also heals allies at same time
+healing robot that wants to take damage and heal it back (fleshy simon stalenhag?)
+damage self over time for temp buff also heals nearby allies at same time
+ult temporary invulnerability for self and allies and heal all to full
 
-duration based necromancer robot
-ability combines zombies into big one
-revives buffed minibosses or allies for duration
+duration based necromancer robot (virus?)
+spreading dot if it kills revive as ally and spread
+zombies also apply dot
+ability groups zombies near eachother into big one
+revives all allies and all enemies that died in short duration
 
-shield based robot
-block projectiles and enemies from 1 direction
-shield bash/dash ability
+shield based robot (mad max style?)(v shaped shield?)
+block 90deg projectiles and enemies from cursor direction
+shield rotates slowly
+shield damages enemies in contact
+shield pushes away enemies
+shield has a charge that goes down when pushing and blocking that constantly goes up slowly
+when the charge runs out there is no shield temporarily while it charges to full
+shield bash/dash ability that refunds 50% points
+ult instantly fills shield charge and keeps it full gives shield increased damage gives move speed boost to self and allies and makes the shield rotate twice as fast
 
 health based magnet melee punch robot that gains temp hp when hitting
-ability to boost max hp
-also magnets to pull enemy into melee and punch it away
+if punch kills it launches killed enemy forward mundo e style
+ability to pull all enemies from direction and punch them all away regardless of kill
+ult start punching way faster and boost max hp self and allies
 
 circular saw robot with projectile speed
+saw circles clockwise closeby speed scaling with projectile speed
 saw circles robot at range based on mouse cursor during ability
+ult launches fast bouncing saws at cursor
 
-area based bomb robot
-drop c4 and use ability to detonate
+bomb robot projectile count
+all bombs explode again at same position based on projectile count
+flash bang stun granade ability
+ult air strike at cursor position
+air strike also explodes outward doom bot ziggs style
 
 piercing based laser robot
+big laser ability using battery charge
+when battery runs out ability goes on cooldown
+laser can go through glass walls
+ult puts down rotating mirror/prism to refract laser type attacks
+
+pickup radius based that throws down weapon
+aoe damage around weapon scaling with pickup radius
+weapon pulls in enemies while damaging
+weapon collects xp increasing it's radius
+xp is collected when weapon is collected
+ability throws out weapon and when all have been thrown pulls back in (fifo style)
+can be held to return all weapons at once
+ult pulls all weapons on the map back and all xp
+
+revolver damage based
+only shoots with left click
+reload ability
+reload minigame with left click
+dash+instant reload ability
+
+xp based that can have more weapons and can swap between weapons with ability
+has all weapons active at same time with ult
+1 base always active ability + 6 slots (3 & 3) that can be swapped
+new weapon is added to active or empty slot
