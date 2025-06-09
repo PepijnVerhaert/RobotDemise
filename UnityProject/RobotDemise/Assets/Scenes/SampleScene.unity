@@ -611,11 +611,57 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8202524877166063751, guid: 15d4600ee74236a48b3bc42c8e348225, type: 3}
+      propertyPath: _robot
+      value: 
+      objectReference: {fileID: 1879629710288751037}
+    - target: {fileID: 8202524877166063751, guid: 15d4600ee74236a48b3bc42c8e348225, type: 3}
+      propertyPath: _startBonusStats
+      value: 
+      objectReference: {fileID: 11400000, guid: bee4b25d656e65745b585aa859186cbb, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4219434003796512467, guid: 15d4600ee74236a48b3bc42c8e348225, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1879629710288751037}
+    - targetCorrespondingSourceObject: {fileID: 4219434003796512467, guid: 15d4600ee74236a48b3bc42c8e348225, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1879629710288751040}
   m_SourcePrefab: {fileID: 100100000, guid: 15d4600ee74236a48b3bc42c8e348225, type: 3}
+--- !u!1 &1879629710288751036 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4219434003796512467, guid: 15d4600ee74236a48b3bc42c8e348225, type: 3}
+  m_PrefabInstance: {fileID: 1879629710288751035}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1879629710288751037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879629710288751036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e50b5729aa3be041b16b95805455325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _baseStats: {fileID: 11400000, guid: 56d2c58a9b0b9ca4d8a81c10aa0d5c01, type: 2}
+  _startWeapon: {fileID: 1879629710288751040}
+--- !u!114 &1879629710288751040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879629710288751036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04ad9cc96a6efca448f5a003c1ed7e3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _robot: {fileID: 1879629710288751037}
 --- !u!1001 &2046496788173685973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -634,7 +680,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6464364595753490966, guid: 7943bb9fd354fb64485b9b7b2c65a584, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6464364595753490966, guid: 7943bb9fd354fb64485b9b7b2c65a584, type: 3}
       propertyPath: m_LocalPosition.z
@@ -668,6 +714,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7615571444155577194, guid: 7943bb9fd354fb64485b9b7b2c65a584, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1f9b2a5255718954faa38e2c80269d1c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

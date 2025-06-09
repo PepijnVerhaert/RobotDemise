@@ -19,7 +19,8 @@ special endless mode?
 damage corpses to revive teammates nightreign style
 3 options every level swarm style
 short blur in out when switching game to selection
-
+get tickets to unlock any robot in shop
+robots in groups and all robots of one group have to be unlocked before robots from the next group can be unlocked
 
 stats
 
@@ -157,13 +158,14 @@ ult puts down rotating mirror/prism to refract laser type attacks
 
 pickup radius based that throws down weapon
 aoe damage around weapon scaling with pickup radius
-weapon pulls in enemies while damaging
-weapon collects xp increasing it's radius
+weapon collects xp increasing it's radius to a cap
+robot can not pick up xp
 xp is collected when weapon is collected
 ability throws out weapon and when all have been thrown pulls back in (fifo style)
 can only return weapons in pickup range
 can be held to return all weapons at once
 ult pulls all weapons on the map back regardless of distance and all xp
+closest weapon in range is source for other attacks
 
 revolver damage based
 only shoots with left click
