@@ -1,8 +1,12 @@
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public abstract class BaseRobot : MonoBehaviour
 {
+    public Vector3 _mouseTarget { get; protected set; } = new Vector3();
+    public LayerMask _floorLayer;
+
     protected Dictionary<string, int> _passives;
     protected Dictionary<string, BaseWeapon> _weapons;
     public struct Stats
@@ -40,4 +44,12 @@ public abstract class BaseRobot : MonoBehaviour
     public abstract void SetStartBonusStats(CharacterStartBonusStatsScriptableObject startStats);
     protected abstract void SetStats();
     protected abstract void SetInput();
+
+    protected void UpdateMouseTarget()
+    {
+        RaycastHit hit = new RaycastHit();
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Physics.Raycast(ray, out hit, 1000f, _floorLayer);
+        _mouseTarget = hit.point;
+    }
 }

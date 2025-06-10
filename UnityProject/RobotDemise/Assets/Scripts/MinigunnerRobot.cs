@@ -16,12 +16,14 @@ public sealed class MinigunnerRobotClass : BaseRobot
     private InputAction _ultimateAbilityAction;
 
     private float _basicAbilityCooldown = 5f;
+    private float _basicAbilityCooldownTimer = 0f;
     private float _basicAbilityTimer = 0f;
     private bool _isUsingBasicAbility = false;
     private float _cancelBasicAbilityCooldown = .5f;
     private float _basicAbilityDuration = 5f;
 
     private float _ultimateAbilityCooldown = 5f;
+    private float _ultimateAbilityCooldownTimer = 0f;
     private float _ultimateAbilityTimer = 0f;
     private bool _isUsingUltimateAbility = false;
     private float _cancelUltimateAbilityCooldown = .5f;
@@ -119,7 +121,7 @@ public sealed class MinigunnerRobotClass : BaseRobot
     public override void SetStartBonusStats(CharacterStartBonusStatsScriptableObject startStats)
     {
         _stats.characterSpeed *= startStats.characterSpeed;
-        _stats.haste += startStats.haste;
+        _stats.haste *= startStats.haste;
         _stats.damage *= startStats.damage;
         _stats.size *= startStats.size;
         _stats.health += startStats.health;
@@ -173,27 +175,50 @@ public sealed class MinigunnerRobotClass : BaseRobot
 
     #endregion
 
+    private void Awake()
+    {
+        SetStats();
+        
+    }
+
     void Start()
     {
         SetInput();
-        SetStats();
 
         //init start weapon
         _stats.weaponSlots += 1;
         _weapons.Add(_startWeapon._name, _startWeapon);
+        _startWeapon.ActivateEffect("UpdateStats");
     }
 
     void Update()
     {
-        _basicAbilityTimer += Time.deltaTime;
-        if (_limitedAbilityDuration && _isUsingBasicAbility && _basicAbilityTimer >= (_basicAbilityDuration * _stats.duration))
+        UpdateMouseTarget();
+
+        if(_isUsingBasicAbility)
         {
-            ActivateBasicAbility(false);
+            _basicAbilityTimer += Time.deltaTime;
+            if (_limitedAbilityDuration && _isUsingBasicAbility && _basicAbilityTimer >= (_basicAbilityDuration * _stats.duration))
+            {
+                ActivateBasicAbility(false);
+            }
         }
-        _ultimateAbilityTimer += Time.deltaTime;
-        if (_limitedAbilityDuration && _isUsingUltimateAbility && _ultimateAbilityTimer >= (_ultimateAbilityDuration * _stats.duration))
+        else
         {
-            ActivateUltimateAbility(false);
+            _basicAbilityCooldownTimer += Time.deltaTime / _stats.haste;
+        }
+
+        if (_isUsingUltimateAbility)
+        {
+            _ultimateAbilityTimer += Time.deltaTime;
+            if (_limitedAbilityDuration && _isUsingUltimateAbility && _ultimateAbilityTimer >= (_ultimateAbilityDuration * _stats.duration))
+            {
+                ActivateUltimateAbility(false);
+            }
+        }
+        else
+        {
+            _ultimateAbilityCooldownTimer += Time.deltaTime / _stats.haste;
         }
 
         if (!_isUsingUltimateAbility)
@@ -221,7 +246,7 @@ public sealed class MinigunnerRobotClass : BaseRobot
     {
         if(!_isUsingBasicAbility)
         {
-            if (_basicAbilityTimer < (_basicAbilityCooldown * _stats.haste)) return;
+            if (_basicAbilityCooldownTimer < (_basicAbilityCooldown)) return;
             ActivateBasicAbility(true);
         }
         else
@@ -235,7 +260,7 @@ public sealed class MinigunnerRobotClass : BaseRobot
     {
         if (!_isUsingUltimateAbility)
         {
-            if (_ultimateAbilityTimer < (_ultimateAbilityCooldown * _stats.haste)) return;
+            if (_ultimateAbilityCooldownTimer < (_ultimateAbilityCooldown)) return;
             ActivateUltimateAbility(true);
         }
         else
@@ -251,6 +276,7 @@ public sealed class MinigunnerRobotClass : BaseRobot
 
         _isUsingBasicAbility = activate;
         _basicAbilityTimer = 0f;
+        _basicAbilityCooldownTimer = 0f;
 
         if (activate) _stats.haste *= 2f;
         else _stats.haste *= .5f;
@@ -264,6 +290,7 @@ public sealed class MinigunnerRobotClass : BaseRobot
 
         _isUsingUltimateAbility = activate;
         _ultimateAbilityTimer = 0f;
+        _ultimateAbilityCooldownTimer = 0f;
 
         if (activate) _stats.haste *= .5f;
         else _stats.haste *= 2f;

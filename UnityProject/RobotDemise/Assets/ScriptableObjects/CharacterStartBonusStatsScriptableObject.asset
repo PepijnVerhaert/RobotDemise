@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CharacterStartBonusStatsScriptableObject
   m_EditorClassIdentifier: 
   characterSpeed: 1
-  haste: 1
+  haste: 0.5
   damage: 1
   size: 1
   health: 0
@@ -26,3 +26,5 @@ MonoBehaviour:
   projectileSpeed: 1
   projectilePiercing: 0
   pickupRadius: 1
+  passiveSlots: 0
+  weaponSlots: 0
