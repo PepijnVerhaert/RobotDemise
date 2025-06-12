@@ -118,6 +118,18 @@ public sealed class MinigunnerRobotClass : BaseRobot
         return maxedWeapons;
     }
 
+    public override bool GetHit(float damage)
+    {
+        _currentHealth -= damage;
+        Debug.Log("[MinigunnerRobot.cs][GetHit] took damage");
+        if (_currentHealth <= 0f)
+        {
+            Destroy(gameObject);
+            return true;
+        }
+        return false;
+    }
+
     public override void SetStartBonusStats(CharacterStartBonusStatsScriptableObject startStats)
     {
         _stats.characterSpeed *= startStats.characterSpeed;
@@ -125,6 +137,7 @@ public sealed class MinigunnerRobotClass : BaseRobot
         _stats.damage *= startStats.damage;
         _stats.size *= startStats.size;
         _stats.health += startStats.health;
+        _currentHealth += startStats.health;
         _stats.regeneration += startStats.regeneration;
         _stats.defence += startStats.defence;
         _stats.experience *= startStats.experience;
@@ -145,6 +158,7 @@ public sealed class MinigunnerRobotClass : BaseRobot
         _stats.damage = _baseStats.damage;
         _stats.size = _baseStats.size;
         _stats.health = _baseStats.health;
+        _currentHealth = _baseStats.health;
         _stats.regeneration = _baseStats.regeneration;
         _stats.defence = _baseStats.defence;
         _stats.experience = _baseStats.experience;
@@ -195,6 +209,11 @@ public sealed class MinigunnerRobotClass : BaseRobot
     {
         UpdateMouseTarget();
 
+        if(_currentHealth < _stats.health)
+        {
+            _currentHealth += _stats.regeneration * Time.deltaTime;
+        }
+
         if(_isUsingBasicAbility)
         {
             _basicAbilityTimer += Time.deltaTime;
@@ -233,17 +252,18 @@ public sealed class MinigunnerRobotClass : BaseRobot
 
     private void _basicAbilityAction_performed(InputAction.CallbackContext obj)
     {
-        Debug.Log("pressed basic");
+        Debug.Log("[MinigunnerRobot.cs][_basicAbilityAction_performed] pressed basic");
         UsedBasicAbility();
     }
     private void _ultimateAbilityAction_performed(InputAction.CallbackContext obj)
     {
-        Debug.Log("pressed ult");
+        Debug.Log("[MinigunnerRobot.cs][_ultimateAbilityAction_performed] pressed ult");
         UsedUltimateAbility();
     }
 
     private void UsedBasicAbility()
     {
+        if (_isUsingUltimateAbility) return;
         if(!_isUsingBasicAbility)
         {
             if (_basicAbilityCooldownTimer < (_basicAbilityCooldown)) return;

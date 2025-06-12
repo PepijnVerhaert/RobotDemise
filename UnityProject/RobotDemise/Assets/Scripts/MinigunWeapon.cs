@@ -2,7 +2,7 @@ using UnityEngine;
 
 public sealed class MinigunWeapon : BaseWeapon, IProjectileSource
 {
-    private float _lifeTime = 1f;
+    private float _lifeTime = .5f;
     private float _projectileSpeed = 20f;
     private float _baseDamage = 1f;
     private float _baseCooldown = 1f;
@@ -14,6 +14,7 @@ public sealed class MinigunWeapon : BaseWeapon, IProjectileSource
     private float _currentDamage = 1f;
     private float _currentCooldown = 1f;
     private float _currentCritChance = 0f;
+    private int _currentPiercing = 0;
 
     private float _timer = 0f;
 
@@ -25,6 +26,7 @@ public sealed class MinigunWeapon : BaseWeapon, IProjectileSource
     private float _criticalDamageDone = 0;
 
     [SerializeField] private GameObject _bulletPrefab;
+    [SerializeField] private Transform _bulletSource;
 
     public override void ActivateEffect(string effectName)
     {
@@ -40,6 +42,7 @@ public sealed class MinigunWeapon : BaseWeapon, IProjectileSource
                 _currentDamage = (_baseDamage + (_level * _damagePerLevel)) * stats.damage;
                 _currentCooldown = (_baseCooldown + (_level * _cooldownPerLevel)) * stats.haste;
                 _currentCritChance = stats.luck;
+                _currentPiercing = stats.projectilePiercing;
                 break;
             default:
                 break;
@@ -47,15 +50,38 @@ public sealed class MinigunWeapon : BaseWeapon, IProjectileSource
         return;
     }
 
-    public void LifeEnd(BaseProjectile.ProjectileInfo projectileInfo)
+    public void LifeEnd(BaseProjectile projectile)
     {
     }
 
-    public bool ProjectileHit(BaseProjectile.ProjectileInfo projectileInfo, Collider collider)
+    public bool ProjectileHit(BaseProjectile projectile, Collider collider)
     {
-        _enemiesHit += projectileInfo.hits;
-        //damge if hit was enemy
-        return true;
+        var minigunProjectile = projectile as MinigunBullet;
+        if (collider.tag == "Enemy")
+        {
+            var enemy = collider.gameObject.GetComponentInParent<BaseEnemy>();
+            if (enemy == null)
+            {
+                Debug.Log("[MinigunWeapon.cs][ProjectileHit] hit enemy without health");
+                return false;
+            }
+            var damage = _currentDamage;
+            if (minigunProjectile._isCrit)
+            {
+                _currentDamage *= 2f;
+                _criticalDamageDone += damage;
+            }
+            _damageDone += damage;
+            bool killedEnemy = enemy.Damage(damage);
+            if (killedEnemy) _enemiesKilled++;
+            _enemiesHit += projectile.Info.hits;
+        }
+        else if (collider.tag == "Terrain")
+        {
+            return true;
+        }
+        
+        return projectile.Info.hits > _currentPiercing;
     }
 
     private void Start()
@@ -73,15 +99,16 @@ public sealed class MinigunWeapon : BaseWeapon, IProjectileSource
 
         var direction = (_robot._mouseTarget - _robot.transform.position).normalized;
         direction.y = 0f;
-        GameObject bulletObject = Instantiate(_bulletPrefab, _robot.transform.position, Quaternion.LookRotation(direction));
+        GameObject bulletObject = Instantiate(_bulletPrefab, _bulletSource.position, Quaternion.LookRotation(direction));
 
         var bullet = bulletObject.GetComponent<MinigunBullet>();
         bullet._source = this;
         bullet._maxLifetime = _lifeTime;
         bullet._speed = _projectileSpeed;
         bullet._direction = direction;
+        bullet._isCrit = Random.Range(0f, 1f) < _currentCritChance;
 
         _bulletsFired++;
-        Debug.Log("fire bullet " + _bulletsFired);
+        //Debug.Log("[MinigunWeapon.cs][Update] fire bullet " + _bulletsFired);
     }
 }

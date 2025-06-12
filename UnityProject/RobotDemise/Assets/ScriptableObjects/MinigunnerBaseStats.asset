@@ -16,8 +16,8 @@ MonoBehaviour:
   haste: 1
   damage: 1
   size: 1
-  health: 100
-  regeneration: 1
+  health: 5
+  regeneration: 0.1
   defence: 0
   experience: 1
   projectileCount: 1

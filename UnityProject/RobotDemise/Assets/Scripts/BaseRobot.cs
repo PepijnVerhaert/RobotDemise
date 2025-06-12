@@ -9,6 +9,8 @@ public abstract class BaseRobot : MonoBehaviour
 
     protected Dictionary<string, int> _passives;
     protected Dictionary<string, BaseWeapon> _weapons;
+    protected float _currentHealth;
+
     public struct Stats
     {
         public float characterSpeed;
@@ -42,6 +44,7 @@ public abstract class BaseRobot : MonoBehaviour
     public abstract List<string> GetAvailablePassives();
     public abstract List<string> GetAvailableWeapons();
     public abstract void SetStartBonusStats(CharacterStartBonusStatsScriptableObject startStats);
+    public abstract bool GetHit(float damage); //return was lethal
     protected abstract void SetStats();
     protected abstract void SetInput();
 

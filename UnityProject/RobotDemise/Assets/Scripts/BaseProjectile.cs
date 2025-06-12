@@ -10,6 +10,8 @@ public class BaseProjectile : MonoBehaviour
 
     private ProjectileInfo _info = new ProjectileInfo { hits = 0 };
 
+    public ProjectileInfo Info { get { return _info; } }
+
 	public IProjectileSource _source { private get; set; }
 
     public float _maxLifetime = -1f;
@@ -22,7 +24,7 @@ public class BaseProjectile : MonoBehaviour
             _lifeTimer += Time.deltaTime;
             if (_lifeTimer >= _maxLifetime)
             {
-                _source.LifeEnd(_info);
+                _source.LifeEnd(this);
                 Destroy(gameObject);
             }
         }
@@ -32,7 +34,7 @@ public class BaseProjectile : MonoBehaviour
     {
         _info.hits++;
 
-        bool destroy = _source.ProjectileHit(_info, collision.collider);
+        bool destroy = _source.ProjectileHit(this, collision.collider);
 
         if(destroy) Destroy(gameObject);
     }
@@ -41,7 +43,7 @@ public class BaseProjectile : MonoBehaviour
     {
         _info.hits++;
 
-        bool destroy = _source.ProjectileHit(_info, other);
+        bool destroy = _source.ProjectileHit(this, other);
 
         if (destroy) Destroy(gameObject);
     }

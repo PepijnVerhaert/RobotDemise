@@ -4,6 +4,7 @@ public class MinigunBullet : BaseProjectile
 {
     public Vector3 _direction;
     public float _speed;
+    public bool _isCrit;
     private Rigidbody _rigidbody;
 
     private void Start()

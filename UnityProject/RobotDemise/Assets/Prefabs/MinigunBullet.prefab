@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7796672884336862766}
   - component: {fileID: 1081324325137032319}
   - component: {fileID: 7514512303545500369}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 8520408140598355358}
   m_Layer: 7
   m_Name: MinigunBullet
-  m_TagString: Untagged
+  m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,8 +140,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.05
-  m_Height: 0.2
+  m_Radius: 0.07
+  m_Height: 0.3
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4076938184641317246
@@ -159,6 +159,7 @@ MonoBehaviour:
   _maxLifetime: -1
   _direction: {x: 0, y: 0, z: 0}
   _speed: 0
+  _isCrit: 0
 --- !u!54 &8520408140598355358
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -195,9 +196,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3283294042599643176}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Visuals
-  m_TagString: Untagged
+  m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
